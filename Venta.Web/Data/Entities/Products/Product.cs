@@ -44,9 +44,7 @@ namespace Venta.Web.Data.Entities
 
         public ProductCategory ProductCategory { get; set; }
         public ProductMarca ProductMarca { get; set; }
-        public ProductType ProductType { get; set; }
-
-        public ICollection<ProductComimssion> ProductCommissions { get; set; }
+        public ProductType ProductType { get; set; }       
 
         public ICollection<ProductImage> ProductImages { get; set; }
     }

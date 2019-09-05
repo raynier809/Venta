@@ -5,13 +5,11 @@ using System.Threading.Tasks;
 
 namespace Venta.Web.Data.Entities.Products
 {
-    public class ProductComimssion
+    public class Product_ProductCommission
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
-
-        public decimal CommissionPrice { get; set; }
-       
+        public Product Product { get; set; }
+        public ProductComimssion ProductComimssion { get; set; }
     }
 }

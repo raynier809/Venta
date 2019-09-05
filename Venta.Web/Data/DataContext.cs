@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Venta.Web.Data.Entities;
+using Venta.Web.Data.Entities.Products;
 using Venta.Web.Data.Entities.Selles;
 using Venta.Web.Data.Entities.Users;
 
@@ -29,6 +30,8 @@ namespace Venta.Web.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductComimssion> ProductComimssions { get; set; }
+        public DbSet<Product_ProductCommission> Product_ProductCommissions { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductInventary> ProductInventaries { get; set; }
         public DbSet<ProductMarca> ProductMarcas { get; set; }

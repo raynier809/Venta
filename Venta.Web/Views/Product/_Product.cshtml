@@ -1,0 +1,70 @@
+﻿@model Venta.Web.Models.ProductViewModel
+
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="ProductCategoryId" class="control-label"></label>
+    <select asp-for="ProductCategoryId" asp-items="Model.ProductCategories" class="form-control"></select>
+    <span asp-validation-for="ProductCategoryId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="ProductMarcaId" class="control-label"></label>
+    <select asp-for="ProductMarcaId" asp-items="Model.ProductMarcas" class="form-control"></select>
+    <span asp-validation-for="ProductMarcaId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="ProductTypeId" class="control-label"></label>
+    <select asp-for="ProductTypeId" asp-items="Model.ProductTypes" class="form-control"></select>
+    <span asp-validation-for="ProductTypeId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="PurchasePrice" class="control-label"></label>
+    <input asp-for="PurchasePrice" class="form-control" />
+    <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="SalePrice" class="control-label"></label>
+    <input asp-for="SalePrice" class="form-control" />
+    <span asp-validation-for="SalePrice" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Quantity" class="control-label"></label>
+    <input asp-for="Quantity" class="form-control" />
+    <span asp-validation-for="Quantity" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Barcode" class="control-label"></label>
+    <input asp-for="Barcode" class="form-control" />
+    <span asp-validation-for="Barcode" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="ItHasSerie" /> @Html.DisplayNameFor(model => model.ItHasSerie)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="IsAvalible" /> @Html.DisplayNameFor(model => model.IsAvalible)
+        </label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="Description" class="control-label"></label>
+    <textarea asp-for="Description" class="form-control"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>

@@ -1,0 +1,170 @@
+﻿@model Venta.Web.Data.Entities.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Product</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <h4>Product</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductCategory.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductCategory.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductMarca.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductMarca.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProductType.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ProductType.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <h4>Product Details</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PurchasePrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PurchasePrice)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalePrice)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalePrice)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Barcode)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Barcode)
+                </dd>                
+                <dt>
+                    @Html.DisplayNameFor(model => model.ItHasSerie)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ItHasSerie)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsAvalible)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.IsAvalible)
+                </dd>
+                
+            </dl>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="EditProduct" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="AddImage" asp-route-id="@Model.Id" class="btn btn-primary">Add Image</a>
+    <a asp-action="AddCategory" asp-route-id="@Model.Id" class="btn btn-default">Add Category</a>
+    <a asp-action="AddMarca" asp-route-id="@Model.Id" class="btn btn-default">Add Marca</a>
+    <a asp-action="AddType" asp-route-id="@Model.Id" class="btn btn-default">Add Type</a>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <h4>Images</h4>
+            @if (Model.ProductImages.Count == 0)
+            {
+                <h5>Not images added yet.</h5>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductImages.FirstOrDefault().ImageUrl)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ProductImages)
+                        {
+
+                            <tr>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                    {
+                                        <img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:200px;height:200px;max-width: 100%; height: auto;" />
+                                    }
+                                </td>
+                                <td>
+                                    <button data-id="@item.Id" class="btn btn-danger deleteImage" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+    
+</div>
+
+<partial name="_DeleteDialog" />
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Delete item
+            var item_to_delete;
+            var action_to_delete;
+
+            $('.deleteImage').click((e) => {
+                item_to_delete = e.currentTarget.dataset.id;
+                action_to_delete = 1;
+            });
+
+            
+
+            $("#btnYesDelete").click(function () {
+                if (action_to_delete == 1) {
+                    window.location.href = '/Product/DeleteImage/' + item_to_delete;
+                } 
+            });
+        });
+    </script>
+}
