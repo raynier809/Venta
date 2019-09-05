@@ -24,13 +24,10 @@ namespace Venta.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddThh:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Create Date")]
-        public DateTime StartDate { get; set; }
-
-
-        
+        public DateTime StartDate { get; set; }        
 
         [Display(Name = "It has driver's license?")]
-        public bool license { get; set; }
+        public bool License { get; set; }
 
         public User User { get; set; }
 

@@ -9,7 +9,7 @@ namespace Venta.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        public employee employee { get; set; }
-        public ICollection<Bill> bills { get; set; }
+        public User User { get; set; }
+        public ICollection<Bill> Bills { get; set; }
     }
 }
